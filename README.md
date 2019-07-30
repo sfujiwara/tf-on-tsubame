@@ -19,7 +19,7 @@ Note that `dlh19u20` and `tgz-dlh19g00` are user name and group name of @sfujiwa
 ## Setup
 
 ```bash
-qrsh -g $GROUP -l s_gpu=1 -l h_rt=12:00:00
+qrsh -g $GROUP -l s_gpu=1 -l h_rt=00:10:00
 ```
 
 ## Storage
