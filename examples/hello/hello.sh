@@ -1,6 +1,6 @@
 #!/bin/sh
 #$ -cwd
-#$ -l f_node=1
+#$ -l s_gpu=1
 #$ -l h_rt=1:00:00
 #$ -N hello
 #$ -v GPU_COMPUTE_MODE=1
@@ -17,3 +17,7 @@ module load intel cuda openmpi
 echo "hello"
 pwd
 nvidia-smi
+
+python -m venv tf
+source tf/bin/activate
+pip list
