@@ -1,7 +1,7 @@
 #!/bin/sh
 #$ -cwd
 #$ -l s_gpu=1
-#$ -l h_rt=1:00:00
+#$ -l h_rt=00:10:00
 #$ -N hello
 #$ -v GPU_COMPUTE_MODE=1
 
