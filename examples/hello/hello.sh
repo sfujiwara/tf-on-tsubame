@@ -17,3 +17,4 @@ module load intel cuda openmpi
 # Run script
 echo "hello"
 pwd
+nvidia-smi
