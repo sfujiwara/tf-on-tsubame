@@ -1,8 +1,8 @@
-# Setup an environment for Python 3.6.5 and TensorFlow
+#!/bin/bash
 
-# Load modules
 module purge
 module load python/3.6.5
+module load cuda/10.0.130
 module load intel cuda openmpi
 
 # Create virtual environment
