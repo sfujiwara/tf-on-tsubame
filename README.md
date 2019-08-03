@@ -14,7 +14,7 @@ Set `GROUP`:
 GROUP=tgz-dlh19g00
 ```
 
-Note that `dlh19u20` and `tgz-dlh19g00` are user name and group name of @sfujiwara. You have to replace it with your user name.
+Note that `dlh19u20` and `tgz-dlh19g00` are user name and group name of [@sfujiwara](https://github.com/sfujiwara). You have to replace it with your user name.
 
 ## Setup
 
