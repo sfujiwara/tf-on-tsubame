@@ -3,7 +3,8 @@
 #$ -l f_node=1
 #$ -l h_rt=1:00:00
 #$ -N hello
-#$ -v GPU_COMPUTE_MODE=1
+#$ -o logs/
+#$ -e logs/
 
 # Initialize module
 . /etc/profile.d/modules.sh
@@ -15,5 +16,8 @@ module load cudnn/7.4
 module load nccl/2.4.2
 module load openmpi/2.1.2-opa10.9-t3
 
+# Load virtual environment
+source ~/tf/bin/activate
+
 # Run script
-python examples/hello-python/hello.py
+python task.py
