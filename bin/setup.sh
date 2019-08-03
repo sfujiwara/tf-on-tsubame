@@ -1,5 +1,3 @@
-#!/bin/bash
-
 echo "Load modules..."
 module purge
 module load python/3.6.5

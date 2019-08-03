@@ -18,16 +18,36 @@ Note that `dlh19u20` and `tgz-dlh19g00` are user name and group name of @sfujiwa
 
 ## Setup
 
-Access to computational node
+### Clone this repository
 
 ```bash
+git clone https://github.com/sfujiwara/tf-on-tsubame.git
+```
+
+### Login to GPU node
+
+We have to setup our environment, for example install Python modules, on a computation node with GPU.
+Thus, we login to a computation node at first.
+
+```bash
+# Logint with interactive job
 qrsh -g $GROUP -l s_gpu=1 -l h_rt=00:10:00
+
+# Change directory
+cd tf-on-tsubame
 ```
 
+### Run setup script
+
 ```bash
-module purge
-module load python/3.6.5
+source bin/setup.sh
 ```
+
+The script
+
+- Load modules
+- Create virtual environment `tf` for Python
+- Install Python modules
 
 ## Storage
 
