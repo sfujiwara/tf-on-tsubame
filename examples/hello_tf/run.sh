@@ -17,7 +17,7 @@ module load nccl/2.4.2
 module load openmpi/2.1.2-opa10.9-t3
 
 # Load virtual environment
-source ~/tf/bin/activate
+source ~/venv-tf/bin/activate
 
 # Run script
 python task.py

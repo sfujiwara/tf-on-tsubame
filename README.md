@@ -46,7 +46,7 @@ source bin/setup.sh
 The script
 
 - Load modules
-- Create virtual environment `tf` for Python
+- Create virtual environment `venv-tf` for Python
 - Install Python modules
 
 ## Storage
