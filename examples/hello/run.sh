@@ -3,6 +3,8 @@
 #$ -l s_gpu=1
 #$ -l h_rt=00:10:00
 #$ -N hello
+#$ -o logs/
+#$ -e logs/
 
 # Initialize module
 . /etc/profile.d/modules.sh
