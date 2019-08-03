@@ -1,20 +1,15 @@
 # Distributed TensorFlow on TSUBAME 3.0
 
-## Login Node
+## Access to login node
 
-Access to the login node:
+Access to the login node from your local machine:
 
 ```bash
 ssh dlh19u20@login.t3.gsic.titech.ac.jp -i ~/.ssh/t3-key -YC
 ```
 
-Set `GROUP`:
-
-```bash
-GROUP=tgz-dlh19g00
-```
-
-Note that `dlh19u20` and `tgz-dlh19g00` are user name and group name of [@sfujiwara](https://github.com/sfujiwara). You have to replace it with your user name.
+Note that `dlh19u20` is user name of [@sfujiwara](https://github.com/sfujiwara).
+You have to replace it with your user name.
 
 ## Setup
 
@@ -22,6 +17,18 @@ Note that `dlh19u20` and `tgz-dlh19g00` are user name and group name of [@sfujiw
 
 ```bash
 git clone https://github.com/sfujiwara/tf-on-tsubame.git
+```
+
+### Set group to environment variable
+
+Note that `GROUP` in `.env` should be modified for your group.
+`tgz-dlh19g00` is group name of [@sfujiwara](https://github.com/sfujiwara).
+
+```bash
+cd tf-on-tsubame
+source .env
+
+echo $GROUP
 ```
 
 ### Login to GPU node
@@ -51,12 +58,9 @@ The script
 
 ## Storage
 
-- `/home/0/${USER}`
-  - Home directory to be installed some softwares for the user
-  - `echo ${HOME}`
-- `/gs/hs1/${GROUP}/`
+- `/gs/hs1/$GROUP/`
   - Shared storage to be save large data (for machine learning)
 
 ```
-t3-user-info disk group -g ${GROUP_NAME}
+t3-user-info disk group -g $GROUP
 ```
