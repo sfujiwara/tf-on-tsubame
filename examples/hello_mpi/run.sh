@@ -1,8 +1,8 @@
 #!/bin/sh
 #$ -cwd
-#$ -l s_gpu=1
-#$ -l h_rt=00:10:00
-#$ -N hello
+#$ -l f_node=2
+#$ -l h_rt=1:00:00
+#$ -N hello_mpi
 #$ -o logs/
 #$ -e logs/
 
@@ -17,7 +17,4 @@ module load nccl/2.4.2
 module load openmpi/2.1.2-opa10.9-t3
 
 # Run script
-echo "hello"
-pwd
-nvidia-smi
-printenv
+mpirun -npernode 4 -n 8 -x LD_LIBRARY_PATH bash task.sh
