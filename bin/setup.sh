@@ -16,9 +16,14 @@ echo "Create virtual environment..."
 python3 -m venv ~/venv-tf
 source ~/venv-tf/bin/activate
 
+# Install latest pip
+echo "Install latest pip"
+curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
+python ~/get-pip.py
+
 # Install Python packages
 echo "Install Python packages..."
-python3.6 -m pip install -U pip
+# python3.6 -m pip install -U pip
 # pip install tensorflow-gpu==1.14.0
 pip install tensorflow-gpu==1.12.0
 pip install horovod==0.13.11
