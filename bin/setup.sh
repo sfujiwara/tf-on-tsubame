@@ -14,7 +14,7 @@ module list
 # Create virtual environment
 echo "Create virtual environment..."
 python3 -m venv ~/venv-tf
-source ~/tf/bin/activate
+source ~/venv-tf/bin/activate
 
 # Install Python packages
 echo "Install Python packages..."
