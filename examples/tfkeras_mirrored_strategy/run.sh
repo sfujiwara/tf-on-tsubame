@@ -10,7 +10,6 @@
 . /etc/profile.d/modules.sh
 
 # Load modules
-echo "Load modules..."
 module purge
 module load python/3.6.5
 module load cuda/10.0.130
