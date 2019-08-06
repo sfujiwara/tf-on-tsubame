@@ -14,8 +14,8 @@ module list
 
 # Create virtual environment
 echo "Create virtual environment..."
-python3 -m venv ~/venv-tf
-source ~/venv-tf/bin/activate
+python3 -m venv ~/venv-tf1.12
+source ~/venv-tf1.12/bin/activate
 
 # Install latest pip
 echo "Install latest pip"
@@ -25,7 +25,7 @@ python ~/get-pip.py
 # Install Python packages
 echo "Install Python packages..."
 pip install tensorflow-gpu==1.12.0
-pip install horovod==0.13.11
+pip install horovod
 
 # Show Python packages
 pip list
