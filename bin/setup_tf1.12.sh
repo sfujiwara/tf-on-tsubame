@@ -3,7 +3,7 @@
 echo "Load modules..."
 module purge
 module load python/3.6.5
-module load cuda/9.2.148
+module load cuda/9.0.176
 module load cudnn/7.4
 module load nccl/2.4.2
 module load openmpi/2.1.2-opa10.9-t3
