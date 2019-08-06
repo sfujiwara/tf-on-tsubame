@@ -1,7 +1,8 @@
+# tf.keras + Horovod
+
 echo "Load modules..."
 module purge
 module load python/3.6.5
-# module load cuda/10.0.130
 module load cuda/9.2.148
 module load cudnn/7.4
 module load nccl/2.4.2
@@ -23,8 +24,6 @@ python ~/get-pip.py
 
 # Install Python packages
 echo "Install Python packages..."
-# python3.6 -m pip install -U pip
-# pip install tensorflow-gpu==1.14.0
 pip install tensorflow-gpu==1.12.0
 pip install horovod==0.13.11
 
