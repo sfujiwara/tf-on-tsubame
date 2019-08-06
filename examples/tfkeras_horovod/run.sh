@@ -1,6 +1,6 @@
 #!/bin/sh
 #$ -cwd
-#$ -l f_node=1
+#$ -l f_node=2
 #$ -l h_rt=1:00:00
 #$ -N tfkeras_horovod
 #$ -o logs/
