@@ -44,13 +44,13 @@ def create_model():
 def main():
 
     # Initialize horovod
-    # hvd.init()
+    hvd.init()
 
     model = create_model()
 
     # Wrap keras optimizer with horovod distributed optimizer
     optimizer = tf.keras.optimizers.SGD(lr=0.01, nesterov=True)
-    # optimizer = hvd.DistributedOptimizer(optimizer)
+    optimizer = hvd.DistributedOptimizer(optimizer)
 
     model.compile(
         optimizer=optimizer,
@@ -61,30 +61,30 @@ def main():
     ds_train, ds_eval = load_dataset()
     print(ds_train, ds_eval)
 
-    # callbacks = [
-    #     # Horovod: broadcast initial variable states from rank 0 to all other processes.
-    #     # This is necessary to ensure consistent initialization of all workers when
-    #     # training is started with random weights or restored from a checkpoint.
-    #     hvd.callbacks.BroadcastGlobalVariablesCallback(0),
+    callbacks = [
+        # Horovod: broadcast initial variable states from rank 0 to all other processes.
+        # This is necessary to ensure consistent initialization of all workers when
+        # training is started with random weights or restored from a checkpoint.
+        hvd.callbacks.BroadcastGlobalVariablesCallback(0),
 
-    #     # Horovod: average metrics among workers at the end of every epoch.
-    #     #
-    #     # Note: This callback must be in the list before the ReduceLROnPlateau,
-    #     # TensorBoard or other metrics-based callbacks.
-    #     hvd.callbacks.MetricAverageCallback(),
+        # Horovod: average metrics among workers at the end of every epoch.
+        #
+        # Note: This callback must be in the list before the ReduceLROnPlateau,
+        # TensorBoard or other metrics-based callbacks.
+        hvd.callbacks.MetricAverageCallback(),
 
-    #     # Horovod: using `lr = 1.0 * hvd.size()` from the very beginning leads to worse final
-    #     # accuracy. Scale the learning rate `lr = 1.0` ---> `lr = 1.0 * hvd.size()` during
-    #     # the first three epochs. See https://arxiv.org/abs/1706.02677 for details.
-    #     hvd.callbacks.LearningRateWarmupCallback(warmup_epochs=3, verbose=1),
-    # ]
+        # Horovod: using `lr = 1.0 * hvd.size()` from the very beginning leads to worse final
+        # accuracy. Scale the learning rate `lr = 1.0` ---> `lr = 1.0 * hvd.size()` during
+        # the first three epochs. See https://arxiv.org/abs/1706.02677 for details.
+        hvd.callbacks.LearningRateWarmupCallback(warmup_epochs=3, verbose=1),
+    ]
 
     # Horovod: save checkpoints only on worker 0 to prevent other workers from corrupting them.
-    # if hvd.rank() == 0:
-    #     callbacks.append(tf.keras.callbacks.ModelCheckpoint('./checkpoint-{epoch}.h5'))
+    if hvd.rank() == 0:
+        callbacks.append(tf.keras.callbacks.ModelCheckpoint('./checkpoint-{epoch}.h5'))
 
     # Horovod: write logs on worker 0.
-    # verbose = 1 if hvd.rank() == 0 else 0
+    verbose = 1 if hvd.rank() == 0 else 0
 
     model.fit(
         ds_train,
@@ -92,7 +92,7 @@ def main():
         steps_per_epoch=int(60000/32),
         validation_data=ds_eval,
         validation_steps=100,
-        # callbacks=callbacks,
+        callbacks=callbacks,
     )
 
 

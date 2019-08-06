@@ -24,7 +24,7 @@ python ~/get-pip.py
 
 # Install Python packages
 echo "Install Python packages..."
-pip install tensorflow-gpu==1.12.0
+pip install tensorflow-gpu==1.12.3
 pip install horovod
 
 # Show Python packages
