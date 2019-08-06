@@ -1,6 +1,6 @@
 import tensorflow as tf
 import numpy as np
-# import horovod.tensorflow.keras as hvd
+import horovod.tensorflow.keras as hvd
 
 
 def load_dataset():
