@@ -10,14 +10,14 @@ def load_dataset():
 
     def train_dataset():
         ds = tf.data.Dataset.from_tensor_slices((x_train, y_train))
-        ds = ds.map(lambda x: (tf.cast(x[0], tf.float32)/255., x[1]))
+        # ds = ds.map(lambda x: (tf.cast(x[0], tf.float32)/255., x[1]))
         ds = ds.repeat().shuffle(1024).batch(32)
         # ds = ds.prefetch(tf.data.experimental.AUTOTUNE)
         return ds
     
     def eval_dataset():
         ds = tf.data.Dataset.from_tensor_slices((x_test, y_test))
-        ds = ds.map(lambda x: (tf.cast(x[0], tf.float32)/255., x[1]))
+        # ds = ds.map(lambda x: (tf.cast(x[0], tf.float32)/255., x[1]))
         ds = ds.repeat().batch(100)
         # ds = ds.prefetch(tf.data.experimental.AUTOTUNE)
         return ds
