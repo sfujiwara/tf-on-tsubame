@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #$ -cwd
-#$ -l f_node=1
-#$ -l h_rt=1:00:00
+#$ -l node_q=1
+#$ -l h_rt=00:10:00
 #$ -N hello_tf
 #$ -o logs/
 #$ -e logs/
