@@ -1,14 +1,14 @@
-# Distributed TensorFlow on TSUBAME 3.0
+# Distributed TensorFlow on TSUBAME 4.0
 
 ## Access to login node
 
 Access to the login node from your local machine:
 
 ```bash
-ssh dlh19u20@login.t3.gsic.titech.ac.jp -i ~/.ssh/t3-key -YC
+ssh ug03757@login.t4.gsic.titech.ac.jp -YC
 ```
 
-Note that `dlh19u20` is user name of [@sfujiwara](https://github.com/sfujiwara).
+Note that `ug03757` is user name of [@sfujiwara](https://github.com/sfujiwara).
 You have to replace it with your user name.
 
 ## Setup
@@ -16,19 +16,8 @@ You have to replace it with your user name.
 ### Clone this repository
 
 ```bash
+# Clone repository
 git clone https://github.com/sfujiwara/tf-on-tsubame.git
-```
-
-### Set group to environment variable
-
-Note that `GROUP` in `.env` should be modified for your group.
-`tgz-dlh19g00` is group name of [@sfujiwara](https://github.com/sfujiwara).
-
-```bash
-cd tf-on-tsubame
-source .env
-
-echo $GROUP
 ```
 
 ### Login to GPU node
@@ -38,13 +27,14 @@ Thus, we login to a computation node at first.
 
 ```bash
 # Logint with interactive job
-qrsh -g $GROUP -l s_gpu=1 -l h_rt=00:10:00
-
-# Change directory
-cd tf-on-tsubame
+iqrsh -l h_rt=00:30:00
 ```
 
 ### Run setup script
+
+```bash
+cd tf-on-tsubame
+```
 
 ```bash
 source bin/setup.sh
