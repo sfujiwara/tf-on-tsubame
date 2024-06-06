@@ -1,6 +1,7 @@
 #!/bin/bash
+
 #$ -cwd
-#$ -l cpu_80=1
+#$ -l cpu_4=1
 #$ -l h_rt=0:10:00
 #$ -N hello
 #$ -o logs/
@@ -20,3 +21,4 @@ echo "hello"
 pwd
 nvidia-smi
 printenv
+sleep 30

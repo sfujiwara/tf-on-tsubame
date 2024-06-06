@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 #$ -cwd
 #$ -l f_node=2
 #$ -l h_rt=1:00:00
@@ -10,11 +11,10 @@
 . /etc/profile.d/modules.sh
 
 # Load modules
-module load python/3.6.5
-module load cuda/10.0.130
-module load cudnn/7.4
-module load nccl/2.4.2
-module load openmpi/2.1.2-opa10.9-t3
+module load cuda/12.3.2
+module load cudnn/8.9.7
+module load nccl/2.20.5
+module load openmpi/5.0.2-intel
 
 # Run script
 mpirun -npernode 4 -n 8 -x LD_LIBRARY_PATH bash task.sh
