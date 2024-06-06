@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 #$ -cwd
-#$ -l s_gpu=1
-#$ -l h_rt=00:10:00
+#$ -l cpu_80=1
+#$ -l h_rt=0:10:00
 #$ -N hello
 #$ -o logs/
 #$ -e logs/

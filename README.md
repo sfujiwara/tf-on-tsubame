@@ -26,7 +26,6 @@ We have to setup our environment, for example install Python modules, on a compu
 Thus, we login to a computation node at first.
 
 ```bash
-# Logint with interactive job
 iqrsh -l h_rt=00:30:00
 ```
 
@@ -43,7 +42,7 @@ cd tf-on-tsubame
 The script
 
 - Load modules
-- Create Python virtual environment `./.venv` for Python
+- Create Python virtual environment `./.venv`
 - Install Python packages
 
 ## Storage
