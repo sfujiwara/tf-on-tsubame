@@ -37,20 +37,21 @@ cd tf-on-tsubame
 ```
 
 ```bash
-source bin/setup.sh
+./bin/setup.sh
 ```
 
 The script
 
 - Load modules
-- Create virtual environment `venv-tf` for Python
-- Install Python modules
+- Create Python virtual environment `./.venv` for Python
+- Install Python packages
 
 ## Storage
 
-- `/gs/hs1/$GROUP/`
-  - Shared storage to be save large data (for machine learning)
+Use `/gs/bs/${GROUP}/` directory for datasets.
 
-```
-t3-user-info disk group -g $GROUP
+We can get the disk and group info with command below:
+
+```bash
+t3-user-info disk group
 ```
